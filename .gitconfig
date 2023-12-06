@@ -1,0 +1,24 @@
+#[include] #How to include this
+#	path = ConfigRepo/.gitconfig
+[push]
+	default = upstream
+[alias]
+	root = rev-parse --show-toplevel
+	rdelete = "!f() { \
+		branch=$(git rev-parse --abbrev-ref HEAD); \
+		git switch --detach ;\
+		git branch -D $branch ;\
+		git restore . ;\
+		git clean -fdqx ;\
+		}; f;"
+	dbranch = rdelete
+	s = status
+	a = add
+	d = diff
+	p = pull
+	f = fetch
+	fp = fetch --prune
+	w = worktree
+	c = commit
+[checkout]
+	guess = false
