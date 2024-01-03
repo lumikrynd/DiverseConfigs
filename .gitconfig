@@ -16,6 +16,7 @@
 	a = add
 	d = diff
 	p = pull
+	pp = pull --prune
 	f = fetch
 	fp = fetch --prune
 	w = worktree
