@@ -21,5 +21,6 @@
 	fp = fetch --prune
 	w = worktree
 	c = commit
+	cempty = commit --allow-empty
 [checkout]
 	guess = false
