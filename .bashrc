@@ -1,6 +1,6 @@
 ## include .bashrc if it exists
-#if [ -f $HOME/ConfigRepo/.bashrc ]; then
-#    . $HOME/ConfigRepo/.bashrc
+#if [ -f "$HOME/ConfigRepo/.bashrc" ]; then
+#    . "$HOME/ConfigRepo/.bashrc"
 #fi
 
 set -o vi #vi mode in console
