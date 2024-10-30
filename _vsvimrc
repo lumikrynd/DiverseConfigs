@@ -1,0 +1,19 @@
+" Use "source full/path/to/this/file" in real _vsvimrc
+
+let mapleader = "\<Space>"
+
+" diverse keymaps
+nnoremap , ;
+nnoremap ; ,
+nnoremap ´ `
+nnoremap ´´ ``
+
+" Fun visual studio command shortcuts
+nnoremap <Leader>p :vsc Window.PinTab<CR>
+nnoremap <C-O> :vsc View.NavigateBackward<CR>
+nnoremap <C-I> :vsc View.NavigateForward<CR>
+
+" Use CTRL-S for saving, also in Insert mode
+noremap <C-S> :update<CR>
+vnoremap <C-S> <C-C>:update<CR>
+inoremap <C-S> <C-O>:update<CR>
