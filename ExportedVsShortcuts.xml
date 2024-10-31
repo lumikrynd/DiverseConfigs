@@ -124,49 +124,22 @@
 		<Shortcut Command="Edit.ListMembers" Scope="Text Editor">Ctrl+J</Shortcut>
 
 		<Shortcut Command="Debug.FunctionBreakpoint" Scope="Global">Ctrl+K, B</Shortcut>
-		<Shortcut Command="Edit.ToggleLineComment" Scope="Text Editor">Ctrl+K, Ctrl+'</Shortcut>
-		<Shortcut Command="Edit.SwapAnchor" Scope="Text Editor">Ctrl+K, Ctrl+A</Shortcut>
 		<Shortcut Command="Tools.CodeSnippetsManager" Scope="Global">Ctrl+K, Ctrl+B</Shortcut>
-		<Shortcut Command="Edit.CommentSelection" Scope="Text Editor">Ctrl+K, Ctrl+C</Shortcut>
 		<Shortcut Command="Edit.FormatDocument" Scope="Text Editor">Ctrl+K, Ctrl+D</Shortcut>
-		<Shortcut Command="View.NextError" Scope="Global">Ctrl+K, Ctrl+E</Shortcut>
-		<Shortcut Command="InteractiveConsole.CopyToInteractive" Scope="Text Editor">Ctrl+K, Ctrl+Enter</Shortcut>
-		<Shortcut Command="Edit.FormatSelection" Scope="Text Editor">Ctrl+K, Ctrl+F</Shortcut>
 		<Shortcut Command="EditorContextMenus.CodeWindow.Annotation.ShowStructure" Scope="Global">Ctrl+K, Ctrl+G</Shortcut>
 		<Shortcut Command="Edit.ToggleTaskListShortcut" Scope="Text Editor">Ctrl+K, Ctrl+H</Shortcut>
-		<Shortcut Command="Edit.QuickInfo" Scope="Text Editor">Ctrl+K, Ctrl+I</Shortcut>
-		<Shortcut Command="Edit.QuickInfo" Scope="Find All References Tool Window">Ctrl+K, Ctrl+I</Shortcut>
 		<Shortcut Command="EditorContextMenus.CodeWindow.PeekHeaderCodeFile" Scope="Text Editor">Ctrl+K, Ctrl+J</Shortcut>
 		<Shortcut Command="EditorContextMenus.CodeWindow.RemoveImports.AllScopes" Scope="Global">Ctrl+K, Ctrl+J</Shortcut>
-		<Shortcut Command="SolutionExplorer.SyncWithActiveDocument" Scope="Global">Ctrl+K, Ctrl+K</Shortcut>
-		<Shortcut Command="Edit.ClearBookmarks" Scope="Text Editor">Ctrl+K, Ctrl+L</Shortcut>
 		<Shortcut Command="EditorContextMenus.CodeWindow.Annotation.MoveToPreviousAnnotation" Scope="Global">Ctrl+K, Ctrl+Left Arrow</Shortcut>
 		<Shortcut Command="EditorContextMenus.CodeWindow.Annotation.ShowLineAnnotations" Scope="Global">Ctrl+K, Ctrl+M</Shortcut>
-		<Shortcut Command="Edit.NextBookmark" Scope="Global">Ctrl+K, Ctrl+N</Shortcut>
-		<Shortcut Command="View.Containers" Scope="Global">Ctrl+K, Ctrl+O</Shortcut>
 		<Shortcut Command="EditorContextMenus.CodeWindow.ToggleHeaderCodeFile" Scope="Text Editor">Ctrl+K, Ctrl+O</Shortcut>
 		<Shortcut Command="Edit.PreviousBookmark" Scope="Global">Ctrl+K, Ctrl+P</Shortcut>
-		<Shortcut Command="View.ObjectBrowserGoToSearchCombo" Scope="Global">Ctrl+K, Ctrl+R</Shortcut>
 		<Shortcut Command="EditorContextMenus.CodeWindow.Annotation.MoveToNextAnnotation" Scope="Global">Ctrl+K, Ctrl+Right Arrow</Shortcut>
-		<Shortcut Command="Edit.SurroundWith" Scope="Global">Ctrl+K, Ctrl+S</Shortcut>
-		<Shortcut Command="Edit.GoToTypeDefinition" Scope="Global">Ctrl+K, Ctrl+Shift+T</Shortcut>
 		<Shortcut Command="EditorContextMenus.CodeWindow.ViewCallHierarchy" Scope="Global">Ctrl+K, Ctrl+T</Shortcut>
-		<Shortcut Command="Edit.UncommentSelection" Scope="Text Editor">Ctrl+K, Ctrl+U</Shortcut>
-		<Shortcut Command="View.ClassViewGoToSearchCombo" Scope="Global">Ctrl+K, Ctrl+V</Shortcut>
-		<Shortcut Command="View.BookmarkWindow" Scope="Global">Ctrl+K, Ctrl+W</Shortcut>
-		<Shortcut Command="Edit.InsertSnippet" Scope="Global">Ctrl+K, Ctrl+X</Shortcut>
-		<Shortcut Command="Window.RestoreClosedTab" Scope="Global">Ctrl+K, Ctrl+Z</Shortcut>
-		<Shortcut Command="Edit.DeleteHorizontalWhiteSpace" Scope="Text Editor">Ctrl+K, Ctrl+½</Shortcut>
-		<Shortcut Command="Edit.ShowCodeLensMenu" Scope="Text Editor">Ctrl+K, Ctrl+æ</Shortcut>
-		<Shortcut Command="View.ViewAllEnvironments" Scope="Global">Ctrl+K, Ctrl+æ</Shortcut>
-		<Shortcut Command="Debug.GoToDisassembly" Scope="Global">Ctrl+K, G</Shortcut>
 		<Shortcut Command="EditorContextMenus.CodeWindow.ViewCallHierarchy" Scope="Global">Ctrl+K, T</Shortcut>
-		<Shortcut Command="Edit.ShowCodeLensMenu" Scope="Text Editor">Ctrl+K, æ</Shortcut>
-		<Shortcut Command="View.ViewAllEnvironments" Scope="Global">Ctrl+K, æ</Shortcut>
-
-		<Shortcut Command="Edit.LineCut" Scope="Text Editor">Ctrl+L</Shortcut>
-		<Shortcut Command="Edit.WordPrevious" Scope="Text Editor">Ctrl+Left Arrow</Shortcut>
-		<Shortcut Command="Edit.MoveControlLeft" Scope="Global">Ctrl+Left Arrow</Shortcut>
+		<Shortcut Command="Edit.SurroundWith" Scope="Global">Ctrl+K, Ctrl+S</Shortcut>
+		<Shortcut Command="Edit.InsertSnippet" Scope="Global">Ctrl+K, Ctrl+X</Shortcut>
+		<Shortcut Command="Edit.NextBookmark" Scope="Global">Ctrl+K, Ctrl+N</Shortcut>
 
 		<Shortcut Command="Edit.CollapseAllOutlining" Scope="Text Editor">Ctrl+M, Ctrl+A</Shortcut>
 		<Shortcut Command="ShowOntheflyDocumentation" Scope="Text Editor">Ctrl+M, Ctrl+D</Shortcut>
