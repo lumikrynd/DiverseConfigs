@@ -2,6 +2,10 @@
 
 let mapleader = "\<Space>"
 
+set scrolloff=10
+set relativenumber
+set nu rnu
+
 " diverse keymaps
 nnoremap , ;
 nnoremap ; ,
