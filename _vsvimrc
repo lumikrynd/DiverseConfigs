@@ -13,17 +13,30 @@ nnoremap ´ `
 nnoremap ´´ ``
 
 " Use CTRL-S for saving, also in Insert mode
-noremap <C-S> :update<CR>
-vnoremap <C-S> <C-C>:update<CR>
-inoremap <C-S> <C-O>:update<CR>
+noremap <C-s> :update<CR>
+vnoremap <C-s> <C-c>:update<CR>
+inoremap <C-s> <C-o>:update<CR>
 
 " Fun visual studio command shortcuts
 nnoremap <Leader>p :vsc Window.PinTab<CR>
-nnoremap <C-O> :vsc View.NavigateBackward<CR>
-nnoremap <C-I> :vsc View.NavigateForward<CR>
-nnoremap <C-K> <C-U> :vsc Edit.UncommentSelection<CR>
-nnoremap <C-K> <C-C> :vsc Edit.CommentSelection<CR>
-nnoremap <C-K> <C-K> :vsc SolutionExplorer.SyncWithActiveDocument<CR>
-nnoremap <C-K> <C-I> :vsc Edit.QuickInfo<CR>
-nnoremap <C-K> <C-E> :vsc View.NextError<CR>
+nnoremap <C-o> :vsc View.NavigateBackward<CR>
+nnoremap <C-i> :vsc View.NavigateForward<CR>
+nnoremap <C-k> <C-u> :vsc Edit.UncommentSelection<CR>
+nnoremap <C-k> <C-c> :vsc Edit.CommentSelection<CR>
+nnoremap <C-k> <C-k> :vsc SolutionExplorer.SyncWithActiveDocument<CR>
+nnoremap <C-k> <C-i> :vsc Edit.QuickInfo<CR>
+nnoremap <C-k> <C-e> :vsc View.NextError<CR>
+nnoremap <C-p> :vsc Edit.QuickInfo<CR>
+nnoremap <C-,> :vsc Edit.NavigateTo<CR>
+nnoremap <C-A-,> :vsc Edit.OpenInVim<CR>
+
+nnoremap <C-b> :vsc Build.BuildSelection<CR>
+
+nnoremap <C-e> <C-e> :vsc Refactor.Rename<CR>
+nnoremap <C-e> <C-r> :vsc Edit.SortUsings<CR>
+nnoremap <C-e> <C-w> :vsc Edit.ToggleWordWrap<CR>
+nnoremap <C-e> <C-S> :vsc TestExplorer.ShowTestExplorer<CR>
+nnoremap <C-e> <C-T> :vsc TestExplorer.ShowTestExplorer<CR>
+nnoremap <C-e> s :vsc TestExplorer.ShowTestExplorer<CR>
+nnoremap <C-e> t :vsc TestExplorer.ShowTestExplorer<CR>
 
