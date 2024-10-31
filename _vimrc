@@ -12,9 +12,9 @@ set scrolloff=10
 set nu rnu " Line numbers
 set guifont=lucida\ console:h16
 
-set undodir=~/.vim/.undo//
-set backupdir=~/.vim/.backup//
-set directory=~/.vim/.swp//
+" set undodir=~/.vim/.undo//
+" set backupdir=~/.vim/.backup//
+" set directory=~/.vim/.swp//
 
 set mouse=a
 
