@@ -30,18 +30,17 @@ nnoremap <C-A-,> :vsc Edit.OpenInVim<CR>
 nnoremap <C-b> :vsc Build.BuildSelection<CR>
 nnoremap <C-S-b> :vsc Build.BuildSolution<CR>
 
-" Seems like there are problems with binding these configurations in vsvim
-" Probablye a result of visual studio still having <C-k> and <C-e> shortcuts
-" so it won't allow vsvim to take over shortcuts using those keys...
-" Could be a problem for <C-m> and <C-r> but doesn't seem like it affect those
-" keys... maybe because those doesn't have any global combo shortcuts?
-" ... or mayube because I as an idiot had space in the keybinding... dammit
+" To make <C-k> work in vsvim
+" 1. Unasign all visual studio shortcuts using <C-k>
+" 2. Assign <C-k> to any function in visual studio (only <C-k>
+" 3. Unasign the new shortcut.
+" Now it should work for vsvim
+nnoremap <C-k><C-u> :vsc Edit.UncommentSelection<CR>
+nnoremap <C-k><C-c> :vsc Edit.CommentSelection<CR>
+nnoremap <C-k><C-k> :vsc SolutionExplorer.SyncWithActiveDocument<CR>
+nnoremap <C-k><C-i> :vsc Edit.QuickInfo<CR>
+nnoremap <C-k><C-e> :vsc View.NextError<CR>
 
-" nnoremap <C-k><C-u> :vsc Edit.UncommentSelection<CR>
-" nnoremap <C-k><C-c> :vsc Edit.CommentSelection<CR>
-" nnoremap <C-k><C-k> :vsc SolutionExplorer.SyncWithActiveDocument<CR>
-" nnoremap <C-k><C-i> :vsc Edit.QuickInfo<CR>
-" nnoremap <C-k><C-e> :vsc View.NextError<CR>
 nnoremap <C-e><C-e> :vsc Refactor.Rename<CR>
 nnoremap <C-e><C-r> :vsc Edit.SortUsings<CR>
 nnoremap <C-e><C-w> :vsc Edit.ToggleWordWrap<CR>
