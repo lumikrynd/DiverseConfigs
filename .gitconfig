@@ -20,7 +20,10 @@
 	f = fetch
 	fp = fetch --prune
 	w = worktree
+	l = log --format=format:'%C(Yellow)%H%Cred%d%Creset%n%s'
+	lg = l --graph
 	c = commit
 	cempty = commit --allow-empty
 [checkout]
 	guess = false
+
