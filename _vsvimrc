@@ -18,25 +18,35 @@ vnoremap <C-s> <C-c>:update<CR>
 inoremap <C-s> <C-o>:update<CR>
 
 " Fun visual studio command shortcuts
-nnoremap <Leader>p :vsc Window.PinTab<CR>
+nnoremap <Leader>pp :vsc Window.PinTab<CR>
+nnoremap <Leader>pc :vsc Window.CloseAllButPinned<CR>
+
 nnoremap <C-o> :vsc View.NavigateBackward<CR>
 nnoremap <C-i> :vsc View.NavigateForward<CR>
-nnoremap <C-k> <C-u> :vsc Edit.UncommentSelection<CR>
-nnoremap <C-k> <C-c> :vsc Edit.CommentSelection<CR>
-nnoremap <C-k> <C-k> :vsc SolutionExplorer.SyncWithActiveDocument<CR>
-nnoremap <C-k> <C-i> :vsc Edit.QuickInfo<CR>
-nnoremap <C-k> <C-e> :vsc View.NextError<CR>
 nnoremap <C-p> :vsc Edit.QuickInfo<CR>
 nnoremap <C-,> :vsc Edit.NavigateTo<CR>
 nnoremap <C-A-,> :vsc Edit.OpenInVim<CR>
 
 nnoremap <C-b> :vsc Build.BuildSelection<CR>
+nnoremap <C-S-b> :vsc Build.BuildSolution<CR>
 
-nnoremap <C-e> <C-e> :vsc Refactor.Rename<CR>
-nnoremap <C-e> <C-r> :vsc Edit.SortUsings<CR>
-nnoremap <C-e> <C-w> :vsc Edit.ToggleWordWrap<CR>
-nnoremap <C-e> <C-S> :vsc TestExplorer.ShowTestExplorer<CR>
-nnoremap <C-e> <C-T> :vsc TestExplorer.ShowTestExplorer<CR>
-nnoremap <C-e> s :vsc TestExplorer.ShowTestExplorer<CR>
-nnoremap <C-e> t :vsc TestExplorer.ShowTestExplorer<CR>
+" Seems like there are problems with binding these configurations in vsvim
+" Probablye a result of visual studio still having <C-k> and <C-e> shortcuts
+" so it won't allow vsvim to take over shortcuts using those keys...
+" Could be a problem for <C-m> and <C-r> but doesn't seem like it affect those
+" keys... maybe because those doesn't have any global combo shortcuts?
+" ... or mayube because I as an idiot had space in the keybinding... dammit
+
+" nnoremap <C-k><C-u> :vsc Edit.UncommentSelection<CR>
+" nnoremap <C-k><C-c> :vsc Edit.CommentSelection<CR>
+" nnoremap <C-k><C-k> :vsc SolutionExplorer.SyncWithActiveDocument<CR>
+" nnoremap <C-k><C-i> :vsc Edit.QuickInfo<CR>
+" nnoremap <C-k><C-e> :vsc View.NextError<CR>
+" nnoremap <C-e><C-e> :vsc Refactor.Rename<CR>
+" nnoremap <C-e><C-r> :vsc Edit.SortUsings<CR>
+" nnoremap <C-e><C-w> :vsc Edit.ToggleWordWrap<CR>
+" nnoremap <C-e><C-S> :vsc TestExplorer.ShowTestExplorer<CR>
+" nnoremap <C-e><C-T> :vsc TestExplorer.ShowTestExplorer<CR>
+" nnoremap <C-e>s :vsc TestExplorer.ShowTestExplorer<CR>
+" nnoremap <C-e>t :vsc TestExplorer.ShowTestExplorer<CR>
 
