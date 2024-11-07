@@ -42,8 +42,11 @@ nnoremap <C-k><C-i> :vsc Edit.QuickInfo<CR>
 nnoremap <C-k><C-e> :vsc View.NextError<CR>
 
 nnoremap <C-e><C-e> :vsc Refactor.Rename<CR>
+nnoremap <C-e>e :vsc Refactor.Rename<CR>
 nnoremap <C-e><C-r> :vsc Edit.SortUsings<CR>
+nnoremap <C-e>r :vsc Edit.SortUsings<CR>
 nnoremap <C-e><C-w> :vsc Edit.ToggleWordWrap<CR>
+nnoremap <C-e>w :vsc Edit.ToggleWordWrap<CR>
 nnoremap <C-e><C-S> :vsc TestExplorer.SyncTestInContext<CR>
 nnoremap <C-e>s :vsc TestExplorer.SyncTestInContext<CR>
 nnoremap <C-e><C-T> :vsc TestExplorer.ShowTestExplorer<CR>
