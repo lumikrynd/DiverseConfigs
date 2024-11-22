@@ -25,3 +25,9 @@ nnoremap , ;
 nnoremap ; ,
 nnoremap ´ `
 nnoremap ´´ ``
+
+" some yank preferences
+nnoremap Y y$
+nnoremap <Leader>y "+y
+vnoremap <Leader>y "+y
+nmap <Leader>Y "+Y
