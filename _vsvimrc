@@ -1,6 +1,8 @@
 " Use "source full/path/to/this/file" in real _vsvimrc
 
 let mapleader = "\<Space>"
+map <space> <NOP>
+map <space><esc> <NOP>
 
 set scrolloff=10
 set relativenumber

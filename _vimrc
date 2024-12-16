@@ -19,6 +19,8 @@ set guifont=lucida\ console:h16
 set mouse=a
 
 let mapleader = "\<Space>"
+map <space> <NOP>
+map <space><esc> <NOP>
 
 " diverse keymaps
 nnoremap , ;
