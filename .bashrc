@@ -1,11 +1,14 @@
 ## include .bashrc if it exists
 #if [ -f "$HOME/ConfigRepo/.bashrc" ]; then
-#    . "$HOME/ConfigRepo/.bashrc"
+#  . "$HOME/ConfigRepo/.bashrc"
+#else
+#  echo 'error importing base config'
 #fi
 
 set -o vi #vi mode in console
 
-alias ls='ls -F --color=auto --show-control-chars --group-directories-first'
+export LC_COLLATE="C" #Upper case names before lower case with ls
+alias ls='ls -Fp --color=auto --show-control-chars --group-directories-first'
 alias cdr='cd $(git root)'
 alias c='clear -x'
 #alias alert='pwsh -Command '\''[console]::beep(500,1000)'\'
