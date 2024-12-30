@@ -3,9 +3,10 @@
 
 # Make file ~/.config/sway/config and add the folowing
 #
-# include $HOME/config-repo/sway.config
+# include $HOME/config-repo/sway/config
 # # Your preferred terminal emulator
 # set $term foot
+# set $menu tofi-drun | xargs swaymsg exec --
 
 # Read `man 5 sway` for a complete reference.
 
@@ -16,10 +17,6 @@ include /etc/sway/config-vars.d/*
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $lock swaylock -f -c 000000
 
 ### Output configuration
