@@ -1,0 +1,14 @@
+## include seems to need full path to work, no $HOME or ~
+## Add bellow to [$XDG_CONFIG_HOME|.config]/tofi/config
+# include="/home/user/config-repo/tofi/config"
+
+width = 100%
+height = 100%
+border-width = 0
+outline-width = 0
+padding-left = 35%
+padding-top = 35%
+result-spacing = 25
+num-results = 5
+font = monospace
+background-color = #000A
