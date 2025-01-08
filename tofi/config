@@ -1,6 +1,6 @@
 ## include seems to need full path to work, no $HOME or ~
 ## Add bellow to [$XDG_CONFIG_HOME|.config]/tofi/config
-# include="/home/user/config-repo/tofi/config"
+# include="/<full-path-to-config-repo>/tofi/config"
 
 width = 100%
 height = 100%
