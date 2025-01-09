@@ -10,6 +10,7 @@
 # set $screenshot grim ~/Downloads/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 # set $screenclip slurp | grim -g - ~/Downloads/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 # set $status ~/config-repo/sway/status.sh
+# set $bar_text_size 13
 #
 # output * bg ~/.config/sway/sunset.jpg stretch
 #
@@ -65,7 +66,7 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# workspaces (delete sov part later)
+# workspaces
 bindsym --no-repeat $mod+1 workspace number 1
 bindsym --no-repeat $mod+2 workspace number 2
 bindsym --no-repeat $mod+3 workspace number 3
@@ -201,27 +202,29 @@ for_window [app_id="org.kde.dolphin"] opacity $opacity
 
 bar {
     position bottom
-   t status_command while $status; do sleep 1; done
+    status_command while $status; do sleep 1; done
     tray_output none
     bindcode 272 exec "echo 'toggle visibility' > /tmp/wcp"
-    bindcode 273 exec "echo 2 > /tmp/sov"
+    bindsym button4 nop
+    bindsym button5 nop
+    bindsym button6 nop
+    bindsym button7 nop
 
     colors {
-        height 24
-        statusline #AAAAAA
+        #height 24
+        statusline #DDDDDD
         background #00000033
-	focused_workspace #00000033 #00000033 #FFFFFF
-	active_workspace #00000033 #00000033 #AAAAAA
-	inactive_workspace #00000033 #00000033 #999999
-	urgent_workspace #00000033 #00000033 #FF0000
+		focused_workspace #00000033 #00000033 #FFFFFF
+		active_workspace #00000033 #00000033 #99FF99
+		inactive_workspace #00000033 #00000033 #999999
+		urgent_workspace #00000033 #00000033 #FF0000
     }
-    font "Ubuntu Mono" 11
+    font "Ubuntu Mono" $bar_text_size
 }
 
 
 ### auto launch applications
 exec rm -f /tmp/wob && mkfifo /tmp/wob && tail -f /tmp/wob | wob
-exec rm -f /tmp/sov && mkfifo /tmp/sov && tail -f /tmp/sov | sov -v -t 200 -k 65515
 
 exec brightnessctl set 50%v
 exec ~/.config/wcp/wcp.sh
