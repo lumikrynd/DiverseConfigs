@@ -139,9 +139,9 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pamixer --get-volume > /tmp/wob
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pamixer --get-volume > /tmp/wob
 
-bindsym $mod+XF86AudioPlay exec "echo 1 > /tmp/vmp"
-bindsym $mod+XF86AudioNext exec "echo 2 > /tmp/vmp"
-bindsym $mod+XF86AudioPrev exec "echo 3 > /tmp/vmp"
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 bindsym --no-repeat $mod+Print exec $screenshot
 bindsym --no-repeat $mod+Shift+Print exec $screenclip
