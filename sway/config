@@ -181,8 +181,6 @@ font pango:Terminus (TTF) Bold 12
 # client.urgent           #CB4B1600 #FDF6E3 #1ABC9C #268BD200 #00000000
 # client.placeholder      #00000000 #0c0c0c #ffffff #00000000 #00000000
 
-output * bg ~/.config/sway/sunset.jpg stretch
-
 default_border pixel
 default_floating_border normal
 
