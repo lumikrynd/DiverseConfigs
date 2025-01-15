@@ -198,28 +198,7 @@ for_window [app_id="org.kde.dolphin"] opacity $opacity
 #for_window [app_id="org.gnome.Nautilus"] floating enable
 #for_window [app_id="wdisplays"] floating enable
 
-bar {
-    position bottom
-    status_command while $status; do sleep 1; done
-    tray_output none
-    bindcode 272 exec "echo 'toggle visibility' > /tmp/wcp"
-    bindsym button4 nop
-    bindsym button5 nop
-    bindsym button6 nop
-    bindsym button7 nop
-
-    colors {
-        #height 24
-        statusline #DDDDDD
-        background #00000033
-		focused_workspace #00000033 #00000033 #FFFFFF
-		active_workspace #00000033 #00000033 #99FF99
-		inactive_workspace #00000033 #00000033 #999999
-		urgent_workspace #00000033 #00000033 #FF0000
-    }
-    font "Ubuntu Mono" $bar_text_size
-}
-
+bar swaybar_command waybar
 
 ### auto launch applications
 exec rm -f /tmp/wob && mkfifo /tmp/wob && tail -f /tmp/wob | wob
