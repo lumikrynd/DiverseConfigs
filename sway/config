@@ -41,8 +41,10 @@ input * {
     # xkb_options "caps:escape"
 }
 
-# enable mouse resizing
+### Various configs
+# Mouse fun
 floating_modifier $mod normal
+focus_wrapping no
 
 ### Key bindings
 # Movement
