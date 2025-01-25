@@ -14,7 +14,8 @@
 		"______wlr/taskbar"
 	],
 	"modules-center": [
-        "sway/scratchpad"
+		"inhibitor",
+		"sway/scratchpad"
 	],
 	"modules-right": [
 		"tray",

@@ -10,7 +10,8 @@
 # set $screenshot grim ~/Downloads/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 # set $screenclip slurp | grim -g - ~/Downloads/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 # set $status ~/config-repo/sway/status.sh
-# set $bar_text_size 13
+# set $lock_time 600
+# set $screen_off_time 600
 #
 # output * bg ~/.config/sway/sunset.jpg stretch
 #
@@ -221,10 +222,10 @@ exec ~/.config/wcp/wcp.sh
 exec blueman-applet
 
 # uncomment this to automatic lock & idle
-# exec swayidle -w \
-#          timeout 120 'swaylock -f' \
-#          timeout 240 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f'
+exec swayidle -w \
+    timeout $lock_time 'swaylock -f' \
+    timeout $screen_off_time 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -f'
 
 # uncomment this if you use pipewire on a non-systemd distro and want to launch it manually
 # exec pipewire
