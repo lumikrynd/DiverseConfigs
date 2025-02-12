@@ -20,6 +20,7 @@ HISTFILESIZE=2000 #history size
 shopt -s checkwinsize # check window size after each command
 set -o vi #vi mode in console
 export LC_COLLATE="C" #Upper case names before lower case with ls
+bind 'set completion-ignore-case on'
 
 #Maybe move these into an alias file like suggested by the original bashrc
 alias ls='ls -Fp --color=auto --show-control-chars --group-directories-first'
