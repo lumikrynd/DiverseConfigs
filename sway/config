@@ -12,6 +12,7 @@
 # set $status ~/config-repo/sway/status.sh
 # set $lock_time 600
 # set $screen_off_time 600
+# set $opacity 0.8
 #
 # output * bg ~/.config/sway/sunset.jpg stretch
 #
@@ -202,7 +203,6 @@ gaps inner 1
 gaps outer -1
 
 # to find app_id use "swaymsg -t get_tree"
-set $opacity 0.8
 #for_window [app_id="foot"] border pixel 1
 for_window [app_id="foot"] opacity $opacity
 for_window [app_id="org.kde.dolphin"] opacity $opacity
