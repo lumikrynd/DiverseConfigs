@@ -5,9 +5,23 @@
 #  echo 'error importing base config'
 #fi
 
-set -o vi #vi mode in console
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
+
+HISTCONTROL=ignoreboth # ignore duplicates and commands starting with space
+shopt -s histappend # append to history file
+HISTSIZE=1000 #history length
+HISTFILESIZE=2000 #history size
+
+shopt -s checkwinsize # check window size after each command
+set -o vi #vi mode in console
 export LC_COLLATE="C" #Upper case names before lower case with ls
+
+#Maybe move these into an alias file like suggested by the original bashrc
 alias ls='ls -Fp --color=auto --show-control-chars --group-directories-first'
 alias cdr='cd $(git root)'
 alias c='clear -x'
@@ -21,5 +35,34 @@ alias c='clear -x'
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-#PS1 from windows git bash
-#\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[32m\]\u@\h \[\033[35m\]$MSYSTEM \[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$
+PS1='\n\[\e[35m\]\t\[\e[0m\] \[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[36m\]`__git_ps1`\n\[\e[0m\]\\$ '
+
+
+#alias ls='ls --color=auto'
+#alias dir='dir --color=auto'
+#alias vdir='vdir --color=auto'
+
+#alias grep='grep --color=auto'
+#alias fgrep='fgrep --color=auto'
+#alias egrep='egrep --color=auto'
+
+# some more ls aliases
+#alias ll='ls -l'
+#alias la='ls -A'
+#alias l='ls -CF'
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
