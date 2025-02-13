@@ -5,8 +5,10 @@ map <space> <NOP>
 map <space><esc> <NOP>
 
 set scrolloff=10
-set relativenumber
 set nu rnu
+
+set notimeout
+set ignorecase
 
 " diverse keymaps
 nnoremap , ;

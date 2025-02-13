@@ -12,6 +12,9 @@ set scrolloff=10
 set nu rnu " Line numbers
 set guifont=lucida\ console:h16
 
+set notimeout
+set ignorecase
+
 " set undodir=~/.vim/.undo//
 " set backupdir=~/.vim/.backup//
 " set directory=~/.vim/.swp//
