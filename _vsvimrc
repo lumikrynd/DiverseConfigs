@@ -62,3 +62,8 @@ nnoremap <C-e>s :vsc TestExplorer.SyncTestInContext<CR>
 nnoremap <C-e><C-T> :vsc TestExplorer.ShowTestExplorer<CR>
 nnoremap <C-e>t :vsc TestExplorer.ShowTestExplorer<CR>
 
+nnoremap <Leader>we :vsc View.ErrorList<CR>
+nnoremap <Leader>wo :vsc View.Output<CR>
+nnoremap <Leader>wr :vsc View.FindReferencesWindow1<CR>
+nnoremap <Leader>ws :vsc View.FindResultsWindow1<CR>
+nnoremap <Leader>wb :vsc Debug.Breakpoints<CR>
