@@ -15,11 +15,15 @@
 # set $screen_off_time 600
 # set $opacity 0.8
 #
-# output * bg ~/.config/sway/sunset.jpg stretch
-#
 # include $HOME/config-repo/sway/config
+#
+# output * bg ~/Pictures/Desktop.jpg stretch
 
 # Read `man 5 sway` for a complete reference.
+
+### The holy extra configs ensuring weird stuff doesn't happen for some applications
+# put in the start to avoid default sway configs overwritting things from this config
+include /etc/sway/config.d/*
 
 ### Variables
 
@@ -237,9 +241,3 @@ exec swayidle -w \
 # uncomment and edit this if you want to alter display scaling/resolution on startup
 # output eDP-1 scale 1.6
 # output eDP-1 mode 2880x1800@60Hz
-
-
-
-### The holy extra configs ensuring weird stuff doesn't happen for some applications
-
-include /etc/sway/config.d/*
