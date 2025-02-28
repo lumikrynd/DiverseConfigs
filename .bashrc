@@ -24,6 +24,7 @@ bind 'set completion-ignore-case on'
 
 #Maybe move these into an alias file like suggested by the original bashrc
 alias ls='ls -Fp --color=auto --show-control-chars --group-directories-first'
+alias lsa='ls -A'
 alias cdr='cd $(git root)'
 alias c='clear -x'
 #alias alert='pwsh -Command '\''[console]::beep(500,1000)'\'
