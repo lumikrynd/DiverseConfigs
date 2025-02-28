@@ -1,7 +1,33 @@
 #[include] #How to include this
 #	path = ConfigRepo/.gitconfig
+
+[branch]
+	sort = -committerdate
+
+[tag]
+	sort = version:refname
+
 [push]
 	default = upstream
+
+[init]
+	defaultBranch = main
+
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+
+[checkout]
+	guess = false
+
+[merge]
+	conflictstyle = zdiff3
+
+[grep]
+	patternType = perl
+
 [alias]
 	root = rev-parse --show-toplevel
 	rdelete = "!f() { \
@@ -24,6 +50,4 @@
 	lg = l --graph
 	c = commit
 	cempty = commit --allow-empty
-[checkout]
-	guess = false
 
