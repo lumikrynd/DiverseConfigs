@@ -16,6 +16,7 @@
 [diff]
 	algorithm = histogram
 	colorMoved = plain
+	colorMovedWS = allow-indentation-change
 	mnemonicPrefix = true
 	renames = true
 
