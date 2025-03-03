@@ -1,3 +1,4 @@
+#. "/usr/share/git/completion/git-prompt.sh"
 ## include .bashrc if it exists
 #if [ -f "$HOME/ConfigRepo/.bashrc" ]; then
 #  . "$HOME/ConfigRepo/.bashrc"
