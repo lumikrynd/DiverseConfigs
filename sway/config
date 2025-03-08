@@ -1,24 +1,16 @@
-# My sway config
-# vim: set syntax=swayconfig
-
-# Make file ~/.config/sway/config and add the folowing
-#
-# # Your preferred terminal emulator
-# set $term foot
-# set $menu tofi-drun | xargs swaymsg exec --
-# set $emoji bemoji -n
-# set $browser firefox
-# set $screenshot grim ~/Downloads/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
-# set $screenclip slurp | grim -g - ~/Downloads/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
-# set $lock_time 600
-# set $screen_off_time 600
-# set $opacity 0.8
-#
-# include $HOME/config-repo/sway/config
-#
-# output * bg ~/Pictures/Desktop.jpg stretch
-
 # Read `man 5 sway` for a complete reference.
+
+# Your preferred terminal emulator
+set $term foot
+set $menu tofi-drun | xargs swaymsg exec --
+set $emoji bemoji -n
+set $browser firefox
+set $screenshot grim ~/Downloads/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
+set $screenclip slurp | grim -g - ~/Downloads/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
+set $lock_time 600
+set $screen_off_time 300
+set $opacity 0.9
+set $background ~/Pictures/Desktop.jpg stretch
 
 ### The holy extra configs ensuring weird stuff doesn't happen for some applications
 # put in the start to avoid default sway configs overwritting things from this config
@@ -27,6 +19,8 @@ include /etc/sway/config.d/*
 ### Variables
 
 include /etc/sway/config-vars.d/*
+
+include config-vars
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -223,6 +217,9 @@ exec swayidle -w \
     timeout $lock_time 'swaylock -f' \
     timeout $screen_off_time 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f'
+
+
+output * background $background
 
 # uncomment this if you use pipewire on a non-systemd distro and want to launch it manually
 # exec pipewire
