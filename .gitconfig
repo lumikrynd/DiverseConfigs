@@ -1,8 +1,0 @@
-# this file is only here for compatibility reasons from before I used this
-# repository as my .config repo
-#
-#[include] #How to include this
-#	path = ConfigRepo/.gitconfig
-
-[include] #How to include this
-	path = git/config
