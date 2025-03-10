@@ -49,3 +49,5 @@
 	c = commit
 	cempty = commit --allow-empty
 
+[include]
+	path = local.gitconfig
