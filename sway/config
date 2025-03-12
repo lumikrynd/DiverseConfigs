@@ -9,7 +9,7 @@ set $screenshot grim ~/Downloads/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 set $screenclip slurp | grim -g - ~/Downloads/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 set $lock_time 600
 set $screen_off_time 300
-set $opacity 0.9
+set $opacity 1
 set $background ~/Pictures/Desktop.jpg stretch
 
 ### The holy extra configs ensuring weird stuff doesn't happen for some applications
@@ -45,6 +45,7 @@ input * {
 # Mouse fun
 floating_modifier $mod normal
 focus_wrapping no
+focus_follows_mouse no
 
 ### Key bindings
 # Movement
