@@ -12,6 +12,9 @@ set nu rnu " Line numbers
 set guifont=lucida\ console:h16
 
 set notimeout
+set ttimeout
+set ttimeoutlen=5
+
 set ignorecase
 
 " set undodir=~/.vim/.undo//
