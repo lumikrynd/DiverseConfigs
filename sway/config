@@ -190,7 +190,7 @@ seat seat0 xcursor_theme capitaine-cursors 24
 font pango:Terminus (TTF) Bold 12
 
 # client.focused          #2F2F2F00 #556064 #80FFF9 #1F1F1F00 #00000000
-# client.focused_inactive #2F3D4400 #2F3D44 #1ABC9C #45494800 #00000000
+client.focused_inactive #2F3D4400 #2F3D44 #1ABC9C #45494800 #00000000
 client.unfocused        #0F0F0F00 #2F3D44 #1ABC9C #45494800 #00000000
 client.urgent           #CB4B1600 #FDF6E3 #1ABC9C #268BD200 #00000000
 client.placeholder      #00000000 #0c0c0c #ffffff #00000000 #00000000
@@ -198,7 +198,7 @@ client.placeholder      #00000000 #0c0c0c #ffffff #00000000 #00000000
 default_border pixel
 default_floating_border normal
 
-gaps inner 1
+gaps inner 0
 gaps outer -1
 
 # to find app_id use "swaymsg -t get_tree"
