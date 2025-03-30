@@ -19,14 +19,23 @@
 	],
 	"modules-right": [
 		"tray",
+		"custom/space",
 		"cpu",
+		"custom/space",
 		"memory",
+		"custom/space",
 		"disk",
+		"custom/space",
 		"pulseaudio",
+		"custom/space",
 		"network",
+		"custom/space",
 		"battery",
+		"custom/space",
 		"hyprland/language",
+		"custom/space",
 		"temperature",
+		"custom/space",
 		"sway/language",
 		"clock"
 	],
@@ -54,7 +63,7 @@
 	},
 	"cpu": {
 		"interval": 5,
-		"format": "  {usage}%",
+		"format": "{usage}% ",
 		"max-length": 10
 	},
 	"temperature": {
@@ -67,7 +76,7 @@
 	},
 	"disk": {
 		"interval": 30,
-		"format": "󰋊 {percentage_used}%",
+		"format": "{percentage_used}%󰋊",
 		"path": "/",
 		"tooltip": true,
 		"unit": "GB",
@@ -75,13 +84,13 @@
 	},
 	"memory": {
 		"interval": 10,
-		"format": "  {percentage}%",
+		"format": "{percentage}% ",
 		"max-length": 10,
 		"tooltip": true,
 		"tooltip-format": "RAM - {used:0.1f}GiB used"
 	},
 	"wlr/taskbar": {
-		"format": "{icon} {title:.17}",
+		"format": "{icon}{title:.17}",
 		"icon-size": 28,
 		"spacing": 3,
 		"on-click-middle": "close",
@@ -119,8 +128,8 @@
 		}
 	},
 	"network": {
-		"format-wifi": " {icon}",
-		"format-ethernet": "  ",
+		"format-wifi": "{icon}",
+		"format-ethernet": " ",
 		"format-disconnected": "󰌙",
 		"format-icons": [
 			"󰤯 ",
@@ -132,16 +141,20 @@
 	},
 	"bluetooth": {
 	},
+	"custom/space": {
+		"format": " ",
+		"tooltip": false
+	},
 	"battery": {
 		"states": {
 			"good": 95,
 			"warning": 30,
 			"critical": 20
 		},
-		"format": "{icon} {capacity}%",
-		"format-charging": " {capacity}%",
-		"format-plugged": " {capacity}%",
-		"format-alt": "{time} {icon}",
+		"format": "{icon}{capacity}%",
+		"format-charging": "{capacity}% ",
+		"format-plugged": "{capacity}% ",
+		"format-alt": "{time}{icon}",
 		"format-icons": [
 			"󰂎",
 			"󰁺",
@@ -159,7 +172,7 @@
 	"pulseaudio": {
 		"max-volume": 150,
 		"scroll-step": 10,
-		"format": "{icon}",
+		"format": "{volume}%{icon}",
 		"tooltip-format": "{volume}%",
 		"format-muted": " ",
 		"format-icons": {
