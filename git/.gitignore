@@ -1,2 +1,3 @@
-!config
-!local.gitconfig.example
+!*
+local.gitconfig
+gitk
