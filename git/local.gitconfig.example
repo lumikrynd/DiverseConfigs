@@ -1,3 +1,12 @@
 [user]
 	name = name
 	email = em@il.com
+
+# Examples of different configs for work and private
+# Only realy need one of them if I set the default user
+# to the other
+[includeif "hasconfig:remote.*.url:git@work:*/**"]
+	path = workuser.gitconfig
+
+[includeif "hasconfig:remote.*.url:git@private:*/**"]
+	path = privateuser.gitconfig
