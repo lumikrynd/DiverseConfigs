@@ -213,12 +213,8 @@ for_window [app_id="org.kde.dolphin"] opacity $opacity
 
 bar swaybar_command waybar
 
-# uncomment this to automatic lock & idle
-exec swayidle -w \
-    timeout $lock_time 'swaylock -f' \
-    timeout $screen_off_time 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -f'
-
+# Idle handling
+exec hypridle
 
 output * background $background
 

@@ -1,0 +1,43 @@
+general {
+    lock_cmd = pidof hyprlock || hyprlock
+    lock_cmd = swaylock -f
+    unlock_cmd = notify-send "unlock!"
+    before_sleep_cmd = loginctl lock-session
+    after_sleep_cmd = hyprctl dispatch dpms on  # to avoid having to press a key twice to turn on the display.
+    ignore_dbus_inhibit = false
+    ignore_systemd_inhibit = false
+}
+
+# Turn of keyboard backlight after 5 seconds
+# There so I can see if the idle effect is active (and because I find it fun)
+listener {
+    timeout = 5
+    on-timeout = brightnessctl -sd asus::kbd_backlight set 0
+    on-resume = brightnessctl -rd asus::kbd_backlight
+}
+
+# Turn down monitor backlight
+listener {
+    timeout = 120
+    on-timeout = brightnessctl -s set 10
+    on-resume = brightnessctl -r
+}
+
+# Lock system
+listener {
+    timeout = 300
+    on-timeout = loginctl lock-session
+}
+
+# turn off screen
+listener {
+    timeout = 330
+    on-timeout = hyprctl dispatch dpms off
+    on-resume = hyprctl dispatch dpms on && brightnessctl -r
+}
+
+# Suspend system
+listener {
+    timeout = 1800
+    on-timeout = systemctl suspend
+}
