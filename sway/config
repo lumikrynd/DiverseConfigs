@@ -7,9 +7,6 @@ set $emoji bemoji -n
 set $browser firefox
 set $screenshot grim ~/Downloads/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 set $screenclip slurp | grim -g - ~/Downloads/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
-set $lock_time 600
-set $screen_off_time 300
-set $opacity 1
 set $background ~/Pictures/Desktop.jpg stretch
 
 ### The holy extra configs ensuring weird stuff doesn't happen for some applications
@@ -203,8 +200,8 @@ gaps outer -1
 
 # to find app_id use "swaymsg -t get_tree"
 #for_window [app_id="foot"] border pixel 1
-for_window [app_id="foot"] opacity $opacity
-for_window [app_id="org.kde.dolphin"] opacity $opacity
+#for_window [app_id="foot"] opacity $opacity
+#for_window [app_id="org.kde.dolphin"] opacity $opacity
 #for_window [app_id="iwgtk"] floating enable
 #for_window [app_id="blueman-manager"] floating enable
 #for_window [app_id="pavucontrol"] floating enable

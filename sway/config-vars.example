@@ -1,13 +1,8 @@
-set $term foot
-set $menu tofi-drun | xargs swaymsg exec --
-set $emoji bemoji -n
+set $term kitty
+set $menu rofi -show drun
+set $emoji rofi -modi emoji -show emoji -emoji-mode copy
 set $browser firefox
 set $screenshot grim ~/Downloads/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 set $screenclip slurp | grim -g - ~/Downloads/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
-set $status ~/config-repo/sway/status.sh
-
-set $lock_time 1200
-set $screen_off_time 600
-set $opacity 0.9
 
 set $background ~/Pictures/Desktop.jpg stretch
