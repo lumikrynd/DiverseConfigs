@@ -1,6 +1,6 @@
 set $term kitty
 set $menu rofi -show drun
-set $emoji rofi -modi emoji -show emoji -emoji-mode copy
+set $emoji rofi -modi emoji -show emoji -emoji-mode copy -emoji-file ~/.config/rofi/all-emojis.txt
 set $browser firefox
 set $screenshot grim ~/Downloads/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 set $screenclip slurp | grim -g - ~/Downloads/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
