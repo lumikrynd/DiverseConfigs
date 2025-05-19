@@ -1,6 +1,6 @@
 {
 	"layer": "bottom",
-	"position": "bottom",
+	"position": "top",
 	"mod": "dock",
 	"exclusive": true,
 	"gtk-layer-shell": true,
