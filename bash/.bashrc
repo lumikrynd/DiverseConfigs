@@ -28,6 +28,7 @@ alias ls='ls -Fp --color=auto --show-control-chars --group-directories-first'
 alias lsa='ls -A'
 alias cdr='cd $(git root)'
 alias c='clear -x'
+alias grep='grep --color=auto'
 #alias alert='pwsh -Command '\''[console]::beep(500,1000)'\'
 
 # this option might be windows specific, copy as needed I guess... wait why the hell is it sv_SE... later...
