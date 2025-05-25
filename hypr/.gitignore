@@ -1,3 +1,4 @@
 !*.example
 !sub-configs/*
+sub-configs/local.conf
 !hyprland.conf
