@@ -6,6 +6,9 @@
 #  echo 'error importing base config'
 #fi
 
+#zoxide fun
+#eval "$(zoxide init --cmd cd bash)"
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
