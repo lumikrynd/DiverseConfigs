@@ -39,7 +39,7 @@
 		git switch --detach ;\
 		git branch -D $branch ;\
 		git restore . ;\
-		git clean -fdqx ;\
+		git clean -fdq ;\
 		}; f;"
 	dbranch = rdelete
 	s = status
