@@ -28,6 +28,7 @@ bind 'set completion-ignore-case on'
 
 #Maybe move these into an alias file like suggested by the original bashrc
 alias ls='ls -Fp --color=auto --show-control-chars --group-directories-first'
+alias lsl='ls -lh'
 alias lsa='ls -A'
 alias cdr='cd $(git root)'
 alias cdd='cd $(find . -type d | cut -c 3- | fzf)'
