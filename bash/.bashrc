@@ -35,6 +35,7 @@ alias cdd="cd \"\$(find . -type d | cut -c 3- | fzf)\""
 alias c='clear -x'
 alias grep='grep --color=auto'
 #alias alert='pwsh -Command '\''[console]::beep(500,1000)'\'
+#alias alert='speaker-test -t sine -f 500 -c 1 > /dev/null 2&>1 & disown; sleep 0.8; kill $!'
 
 # this option might be windows specific, copy as needed I guess... wait why the hell is it sv_SE... later...
 # export LC_ALL=sv_SE.utf8 #fix only part of character being deleted
