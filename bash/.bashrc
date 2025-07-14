@@ -32,6 +32,7 @@ alias lsl='ls -lh'
 alias lsa='ls -A'
 alias cdr='cd $(git root)'
 alias cdd="cd \"\$(find . -type d | cut -c 3- | fzf)\""
+alias cdf="cd \"\$(fzf | xargs -I _ dirname \"_\")\""
 alias c='clear -x'
 alias grep='grep --color=auto'
 #alias alert='pwsh -Command '\''[console]::beep(500,1000)'\'
