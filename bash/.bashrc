@@ -46,6 +46,10 @@ alias grep='grep --color=auto'
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+# man page colors
+export MANPAGER="less -R --use-color -Dd+C -Du+y"
+export MANROFFOPT="-c"
+
 PS1='\n\[\e[35m\]\t\[\e[0m\] \[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[36m\]`__git_ps1`\n\[\e[0m\]\\$ '
 
 
