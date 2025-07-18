@@ -1,0 +1,8 @@
+#! /usr/bin/env bash
+
+result=$(pactl -f json list sinks | jq '[.[] | {name, nickname:.description}]')
+
+destfile=./audio_output_nicknames.local
+if [ ! -f "$destfile" ]; then
+	echo "$result" > "$destfile"
+fi
