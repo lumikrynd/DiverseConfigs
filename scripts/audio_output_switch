@@ -1,14 +1,38 @@
 #! /usr/bin/env bash
 
+nickname_file=${XDG_CONFIG_DIR:-$HOME/.config}/scripts/audio_output_nicknames.local
+nicknames=$(cat $nickname_file)
+pactl_raw=$(pactl -f json list sinks | jq -c 'map({name, description})')
+
+pactl_combines=$( (echo $pactl_raw && echo $nicknames) |
+	jq -sc '
+		[
+			[.[][]] |
+			group_by(.name) [] |
+			{ # join fetched sinks and nickname file
+				name: .[0].name,
+				nickname: map(.nickname | select(. != null)) | first,
+				description: map(.description | select(. != null)) | first
+			} |
+			# filter out if nickname file have non-existing devices
+			select(.description != null) |
+			# Use nickname, or fall back to sink description
+			{
+				name,
+				description: [.nickname, .description] | map(select(. != null)) | first
+			}
+		]'
+	)
+
 # Create a list of sinks with pretty names
-options=$(pactl -f json list sinks | jq -r '.[] | .description')
+options=$( (echo $pactl_combines) | jq -r '.[] | .description')
 
 # Let the user select a description
 selection=$(echo "$options" | $DMENU -i -l 5 -c -p "Output:")
 
 # Extract the corresponding sink name
 sink_name=$(
-	pactl -f json list sinks |
+	(echo $pactl_combines) |
 	jq -r --arg sink_pretty_name "$selection" '
 		.[] |
 		select(.description == $sink_pretty_name) |
