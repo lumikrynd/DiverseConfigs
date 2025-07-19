@@ -52,6 +52,7 @@ export MANROFFOPT="-c"
 
 PS1='\n\[\e[35m\]\t\[\e[0m\] \[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[36m\]`__git_ps1`\n\[\e[0m\]\\$ '
 
+export DMENU="rofi -dmenu"
 
 #alias ls='ls --color=auto'
 #alias dir='dir --color=auto'
