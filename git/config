@@ -44,6 +44,24 @@
 	dbranch = rdelete
 	s = status
 	a = add
+	fadd = "! \
+		to_name() {\
+			while IFS= read -r line; do \
+				echo \"${line#???}\" ; \
+			done \
+		};\
+		filter_unstaged() {\
+			while IFS= read -r line; do\
+				if [[ \"${line:1:1}\" != \" \" ]]; then\
+					echo \"$line\" ; \
+				fi\
+			done\
+		};\
+		f() { \
+			files=$(git status --untracked-files --porcelain | filter_unstaged | fzf -m | to_name) ; \
+			git add \"$@\" $files; \
+		}; f"
+	fa = fadd
 	d = diff
 	p = pull
 	pp = pull --prune --no-stat
