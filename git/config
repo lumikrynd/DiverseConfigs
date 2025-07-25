@@ -62,6 +62,17 @@
 			git add \"$@\" $files; \
 		}; f"
 	fa = fadd
+	frestore = "! \
+		to_name() {\
+			while IFS= read -r line; do \
+				echo \"${line#???}\" ; \
+			done \
+		};\
+		f() { \
+			files=$(git status --untracked-files --porcelain | fzf -m | to_name) ; \
+			git restore \"$@\" $files; \
+		}; f"
+	fr = frestore
 	d = diff
 	p = pull
 	pp = pull --prune --no-stat
