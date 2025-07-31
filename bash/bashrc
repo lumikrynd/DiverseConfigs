@@ -63,6 +63,9 @@ export DMENU="rofi -dmenu"
 #alias la='ls -A'
 #alias l='ls -CF'
 
+#FZF_CTRL_T_COMMAND= FZF_ALT_C_COMMAND= eval "$(fzf --bash)"
+eval "$(fzf --bash)"
+
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
