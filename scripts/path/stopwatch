@@ -1,0 +1,18 @@
+#!/bin/bash
+# Start a timer displayed in the terminal, which stops when you press enter
+
+{
+	date1=$(date +%s)
+	while true; do
+		echo -ne "$(date -u --date @$(($(date +%s) - $date1)) +%H:%M:%S)\r"
+		sleep 0.1
+	done
+} &
+
+timer_pid=$!
+function cleanup {
+	kill $timer_pid
+}
+trap cleanup EXIT
+
+read -r
