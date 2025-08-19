@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+# Change workspace and minimize any special workspaces
+# which might happen to be active
+# This changes the behavior where a workspace will be
+# activated under the active special workspace
+
+hyprctl dispatch workspace $1
+hyprctl dispatch togglespecialworkspace minimize
+hyprctl dispatch togglespecialworkspace minimize
