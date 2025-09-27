@@ -4,6 +4,10 @@
 # This changes the behavior where a workspace will be
 # activated under the active special workspace
 
+# Add the following workspace rule to prevent opening
+# programs on the used workspace
+# windowrule = workspace 1, workspace:name:special:minimize
+
 hyprctl dispatch workspace $1
 hyprctl dispatch togglespecialworkspace minimize
 hyprctl dispatch togglespecialworkspace minimize
