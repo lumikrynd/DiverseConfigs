@@ -58,7 +58,10 @@
 			done\
 		};\
 		f() { \
-			files=$(git status --untracked-files --porcelain | filter_unstaged | fzf -m | to_name) ; \
+			files=$(git status --untracked-files --porcelain \
+				| filter_unstaged \
+				| fzf -m --layout=reverse --height=30% --min-height=5 \
+				| to_name) ; \
 			git add \"$@\" $files; \
 		}; f"
 	fa = fadd
@@ -69,7 +72,9 @@
 			done \
 		};\
 		f() { \
-			files=$(git status --untracked-files --porcelain | fzf -m | to_name) ; \
+			files=$(git status --untracked-files --porcelain \
+				| fzf -m --layout=reverse --height=30% --min-height=5 \
+				| to_name) ; \
 			git restore \"$@\" $files; \
 		}; f"
 	fr = frestore
