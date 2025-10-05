@@ -1,12 +1,31 @@
 #! /usr/bin/env bash
 
-case "$(printf "kill\nzzz\nreboot\nshutdown" | $DMENU -i -c -l 4)" in
-	kill) ps -u $USER -o pid,comm,%cpu,%mem \
+kill_command() {
+	ps -u $USER -o pid,comm,%cpu,%mem \
 		| $DMENU -i -c -l 10 -p Kill: \
 		| awk '{print $1}' \
-		| xargs -r kill ;;
-	zzz) loginctl lock-session ; systemctl suspend -i ;;
-	reboot) systemctl reboot -i ;;
-	shutdown) systemctl poweroff ;;
-	*) exit 1 ;;
-esac
+		| xargs -r kill
+}
+
+sleep_command() { slock systemctl suspend -i; }
+reboot_command() { systemctl reboot -i; }
+shutdown_command() { shutdown now; }
+
+# Command map
+declare -A commands=(
+	["1 kill"]=kill_command
+	["2 sleep"]=sleep_command
+	["3 reboot"]=reboot_command
+	["4 poweroff"]=shutdown_command
+)
+
+# Build the menu options
+options=$(printf "%s\n" "${!commands[@]}" | sort -n | $DMENU -i -c -l 4)
+
+# Execute the selected command
+if [[ -n $options && ${commands[$options]+_} ]]; then
+	"${commands[$options]}"
+else
+	echo "unknown command"
+	exit 1
+fi
