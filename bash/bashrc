@@ -27,12 +27,31 @@ alias ls='ls -Fp --color=auto --show-control-chars --group-directories-first'
 alias lsl='ls -lh'
 alias lsa='ls -A'
 alias cdr='cd $(git root)'
-alias cdd="cd \"\$(find . -type d | cut -c 3- | fzf --layout=reverse --height=30% --min-height=5)\""
-alias cdf="cd \"\$(fzf --layout=reverse --height=30% --min-height=5 | xargs -I _ dirname \"_\")\""
 alias c='clear -x'
 alias grep='grep --color=auto'
 #alias alert='pwsh -Command '\''[console]::beep(500,1000)'\'
 #alias alert='speaker-test -t sine -f 500 -c 1 > /dev/null 2&>1 & disown; sleep 0.8; kill $!'
+
+cdd() {
+	directory="$(set -o pipefail; \
+		find . -type d \
+		| cut -c 3- \
+		| fzf --layout=reverse --height=30% --min-height=5)"
+
+	if [[ -n "$directory" ]]; then
+		cd "$directory"
+	fi
+}
+
+cdf() {
+	directory="$(set -o pipefail; \
+		fzf --layout=reverse --height=30% --min-height=5 \
+		| xargs -I _ dirname _)"
+
+	if [[ -n "$directory" ]]; then
+		cd "$directory"
+	fi
+}
 
 # this option might be windows specific, copy as needed I guess... wait why the hell is it sv_SE... later...
 # export LC_ALL=sv_SE.utf8 #fix only part of character being deleted
