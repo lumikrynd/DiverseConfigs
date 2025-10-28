@@ -1,0 +1,3 @@
+#!/bin/bash
+# Search through the whatis text of commands in fzf
+compgen -c | xargs whatis | fzf
