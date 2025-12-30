@@ -1,2 +1,7 @@
-preload = ~/Pictures/Desktop.jpg
-wallpaper = , ~/Pictures/Desktop.jpg
+wallpaper {
+	monitor =
+	path = ~/Pictures/Desktop.jpg
+	fit_mode = cover
+}
+
+splash = false
