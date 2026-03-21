@@ -29,6 +29,10 @@ alias lsa='ls -A'
 alias cdr='cd $(git root)'
 alias c='clear -x'
 alias grep='grep --color=auto'
+
+open() {
+	&> /dev/null xdg-open "$@" & disown
+}
 #alias alert='pwsh -Command '\''[console]::beep(500,1000)'\'
 #alias alert='speaker-test -t sine -f 500 -c 1 > /dev/null 2&>1 & disown; sleep 0.8; kill $!'
 
