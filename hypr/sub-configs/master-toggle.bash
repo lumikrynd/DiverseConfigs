@@ -15,7 +15,7 @@ commandresult=$(hyprctl activewindow -j)
 y_pos=$(echo $commandresult | jq '.at[1]')
 
 if ((y_pos < 500)); then
-    hyprctl dispatch layoutmsg removemaster
+    hyprctl dispatch 'hl.dsp.layout("removemaster")'
 else
-    hyprctl dispatch layoutmsg addmaster
+    hyprctl dispatch 'hl.dsp.layout("addmaster")'
 fi

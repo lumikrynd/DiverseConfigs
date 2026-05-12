@@ -8,6 +8,6 @@
 # programs on the used workspace
 # windowrule = workspace 1, workspace:name:special:minimize
 
-hyprctl dispatch workspace $1
-hyprctl dispatch togglespecialworkspace minimize
-hyprctl dispatch togglespecialworkspace minimize
+hyprctl dispatch "hl.dsp.focus({workspace = $1})"
+hyprctl dispatch 'hl.dsp.workspace.toggle_special("minimize")'
+hyprctl dispatch 'hl.dsp.workspace.toggle_special("minimize")'
