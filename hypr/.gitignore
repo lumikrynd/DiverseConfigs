@@ -2,3 +2,4 @@
 !sub-configs/*
 sub-configs/local.lua
 !hyprland.lua
+!.luarc.json
