@@ -1,0 +1,36 @@
+log_level = "warn"
+outputs = "All"
+position = "Top"
+layer = "Bottom"
+
+[modules]
+left = [ "Workspaces" ]
+center = [ "WindowTitle" ]
+right = [ "SystemInfo", "Tray", [ "Privacy", "Settings"], "Tempo" ]
+
+[workspaces]
+visibility_mode = "MonitorSpecificExclusive"
+disable_special_workspaces = true
+group_by_monitor = false
+
+[appearance]
+style = "Solid"
+opacity = 0.8
+
+primary_color = "#7aa2f7"
+success_color = "#9ece6a"
+text_color = "#a9b1d6"
+
+workspace_colors = [ "#7aa2f7" ]
+
+[appearance.danger_color]
+base = "#f7768e"
+weak = "#e0af68"
+
+[appearance.background_color]
+base = "#1a1b26"
+weak = "#24273a"
+strong = "#414868"
+
+[appearance.secondary_color]
+base = "#0c0d14"
