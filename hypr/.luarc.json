@@ -6,5 +6,8 @@
   },
   "diagnostics": {
     "globals": ["hl"]
-  }
+  },
+    "diagnostics.disable": [
+        "redefined-local"
+    ]
 }

@@ -5,105 +5,13 @@
 -- Create your files separately and then require them like this:
 -- require("myColors")
 
--- See https://wiki.hypr.land/Configuring/Basics/Monitors/
-
--- See https://wiki.hypr.land/Configuring/Basics/Monitors/
-hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
-
-local home = os.getenv( "HOME" )
-local config = os.getenv("XDG_CONFIG_HOME") or home .. "/.config"
-local sub_configs = config .. "/hypr/sub-configs";
-
-Terminal = "kitty"
-Menu = "rofi -show drun"
-Emoji = "rofi -mode emoji -show emoji -emoji-mode copy -emoji-file "
-	.. config
-	.. "/rofi/all-emojis.txt"
-
-Browser = "firefox"
-Lock = "hyprlock"
-
-Grim_dir = home .. "/Pictures/screenshots"
-hl.env("GRIM_DEFAULT_DIR", Grim_dir)
-
-hl.on("hyprland.start", function()
-	hl.exec_cmd("mkdir -p " .. Grim_dir)
-end)
-
-ColorPicker = "slurp -b 00000000 -p | grim -g - -"
-	.. " | magick - txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy"
-Snipping = "slurp | grim -g - - | wl-copy"
-Screenshot = "grim"
-
-hl.env("DMENU", "rofi -dmenu")
-
--------------------
----- AUTOSTART ----
--------------------
-hl.on("hyprland.start", function ()
-	hl.exec_cmd("waybar")
-	hl.exec_cmd("hyprpaper")
-	hl.exec_cmd("hypridle")
-	hl.exec_cmd("udiskie")
-	-- Could also start discord
-end)
-
--------------------------------
----- ENVIRONMENT VARIABLES ----
--------------------------------
-
--- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
-
-hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_SIZE", "24")
-
------------------------
------ PERMISSIONS -----
------------------------
-
--- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Permissions/
--- Please note permission changes here require a Hyprland restart and are not applied on-the-fly
--- for security reasons
-
--- hl.config({
---   ecosystem = {
---     enforce_permissions = true,
---   },
--- })
-
--- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
--- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
--- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
-
-
------------------------
------ SUB-CONFIGS -----
------------------------
-
-require("sub-configs.looks")
-require("sub-configs.layout")
-
-
-hl.on("hyprland.start", function()
-	hl.exec_cmd("touch -a " .. sub_configs .. "/local.lua")
-end)
-require("sub-configs.local")
-
-----------------
-----  MISC  ----
-----------------
-
-hl.config({
-	misc = {
-		force_default_wallpaper = -1, -- Set to 0 or 1 to disable the anime mascot wallpapers
-		disable_hyprland_logo = false, -- If true disables the random hyprland logo / anime girl background.
-	},
-})
+require("helpers")
 
 ---------------
 ---- INPUT ----
 ---------------
 
+--Keep first because I don't want to deal with US keyboard when I have errors...
 hl.config({
 	input = {
 		kb_layout = "dk",
@@ -137,9 +45,107 @@ hl.device({
 	sensitivity = -0.5,
 })
 
+
+-------------------------------
+---- ENVIRONMENT VARIABLES ----
+-------------------------------
+
+local home = os.getenv( "HOME" )
+local config = os.getenv("XDG_CONFIG_HOME") or home .. "/.config"
+Sub_configs = config .. "/hypr/sub-configs";
+
+Bar = "waybar"
+Terminal = "kitty"
+Menu = "rofi -show drun"
+Emoji = "rofi -mode emoji -show emoji -emoji-mode copy -emoji-file "
+	.. config
+	.. "/rofi/all-emojis.txt"
+
+Browser = "firefox"
+Lock = "hyprlock"
+
+Grim_dir = home .. "/Pictures/screenshots"
+hl.env("GRIM_DEFAULT_DIR", Grim_dir)
+
+hl.on("hyprland.start", function()
+	hl.exec_cmd("mkdir -p " .. Grim_dir)
+end)
+
+ColorPicker = "slurp -b 00000000 -p | grim -g - -"
+	.. " | magick - txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy"
+Snipping = "slurp | grim -g - - | wl-copy"
+Screenshot = "grim"
+
+hl.env("DMENU", "rofi -dmenu")
+
+-- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
+hl.env("XCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_SIZE", "24")
+
+Run_local_config("environment")
+
+require("sub-configs.local") -- TODO: delete after done porting all
+
+
+-------------------
+---- AUTOSTART ----
+-------------------
+
+hl.on("hyprland.start", function ()
+	hl.exec_cmd(Bar)
+	hl.exec_cmd("hyprpaper")
+	hl.exec_cmd("hypridle")
+	hl.exec_cmd("udiskie")
+	-- Could also start discord
+end)
+
+
+-----------------------
+----- PERMISSIONS -----
+-----------------------
+
+-- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Permissions/
+-- Please note permission changes here require a Hyprland restart and are not applied on-the-fly
+-- for security reasons
+
+-- hl.config({
+--   ecosystem = {
+--     enforce_permissions = true,
+--   },
+-- })
+
+-- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
+-- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
+-- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
+
+
+-----------------------
+----- SUB-CONFIGS -----
+-----------------------
+
+require("sub-configs.looks")
+require("sub-configs.layout")
+
+
+----------------
+----  MISC  ----
+----------------
+
+-- See https://wiki.hypr.land/Configuring/Basics/Monitors/
+hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
+
+hl.config({
+	misc = {
+		force_default_wallpaper = -1, -- Set to 0 or 1 to disable the anime mascot wallpapers
+		disable_hyprland_logo = false, -- If true disables the random hyprland logo / anime girl background.
+	},
+})
+
+
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
+
 -- See https://wiki.hypr.land/Configuring/Basics/Binds/
 local mainMod = "SUPER"
 
@@ -153,11 +159,11 @@ hl.bind("Print", hl.dsp.exec_cmd(Screenshot))
 
 hl.bind(mainMod .. " + SHIFT + return", hl.dsp.exec_cmd(Browser))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.close())
-hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd(sub_configs .. "/restart-waybar.bash"))
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd(Sub_configs .. "/restart-waybar.bash"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(config .. "/scripts/system_menu"))
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(sub_configs .. "/master-toggle.bash"))
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(Sub_configs .. "/master-toggle.bash"))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.layout("swapwithmaster"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(Lock))
@@ -185,7 +191,7 @@ hl.bind(mainMod .. " + CTRL + L", hl.dsp.window.swap({ direction = "right" }))
 for i = 1, 10 do
 	local key = i % 10 -- 10 maps to key 0
 
-	hl.bind(mainMod .. " + " .. key, hl.dsp.exec_cmd(sub_configs .. "/change-workspace " .. i))
+	hl.bind(mainMod .. " + " .. key, hl.dsp.exec_cmd(Sub_configs .. "/change-workspace " .. i))
 	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i}))
 end
 
@@ -278,3 +284,5 @@ hl.window_rule({
 
 	no_focus = true,
 })
+
+Run_local_config("config")
