@@ -1,0 +1,5 @@
+# repgrep ignore file
+!*Local*
+!*/
+.git/
+.github/
