@@ -127,7 +127,7 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(Sub_configs .. "/master-toggle.bash")
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.layout("swapwithmaster"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(Lock))
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(config .. "scripts/audio_output_switch"))
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(config .. "/scripts/audio_output_switch"))
 
 -- Move focus
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
