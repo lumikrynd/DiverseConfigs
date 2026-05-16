@@ -1,5 +1,5 @@
 # repgrep ignore file
-!*Local*
+!*[Ll]ocal*
 !*/
 .git/
 .github/
