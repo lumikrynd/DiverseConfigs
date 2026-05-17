@@ -1,5 +1,5 @@
 !*.example
+!*.lua
 !sub-configs/*
 sub-configs/*local*
-!hyprland.lua
 !.luarc.json
