@@ -123,7 +123,7 @@ hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd(Sub_configs .. "/restart-wayb
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(config .. "/scripts/system_menu"))
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(Sub_configs .. "/master-toggle.bash"))
+hl.bind(mainMod .. " + M", Size_toggle)
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.layout("swapwithmaster"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(Lock))
