@@ -85,5 +85,36 @@ function Toggle_Layout()
 	end
 
 	cycle_from_to(master, scrolling)
-	cycle_from_to(scrolling, master)
+	cycle_from_to(scrolling, monocle)
+	cycle_from_to(monocle, master)
+end
+
+
+---@param direction string
+local function monocle_dir_fix(direction)
+	if direction == "right" then
+		hl.dispatch(hl.dsp.layout("cyclenext"))
+	elseif direction == "left" then
+		hl.dispatch(hl.dsp.layout("cycleprev"))
+	end
+end
+
+--- Focus function which also works for the monocle layout
+---@param direction string
+local function custom_focus_logic(direction)
+	local layout = get_workspace().tiled_layout;
+	if layout == monocle then
+		monocle_dir_fix(direction)
+		return
+	end
+
+	hl.dispatch(hl.dsp.focus({ direction = direction }))
+end
+
+--- Focus function which also works for the monocle layout
+---@param direction string
+function Custom_focus(direction)
+	return function()
+		custom_focus_logic(direction)
+	end
 end
