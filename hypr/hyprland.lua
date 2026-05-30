@@ -125,6 +125,7 @@ hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("command -v hyprshutdown >/de
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + M", Size_toggle)
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.layout("swapwithmaster"))
+hl.bind(mainMod .. " + N", Toggle_Layout)
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(Lock))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(config .. "/scripts/audio_output_switch"))

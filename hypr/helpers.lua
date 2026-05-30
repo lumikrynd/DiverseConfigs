@@ -1,3 +1,17 @@
+---@diagnostic disable: unused-local
+local scrolling = "scrolling"
+local dwindle = "dwindle"
+local master = "master"
+local monocle = "monocle"
+---@diagnostic enable: unused-local
+
+local function get_workspace()
+	return hl.get_active_special_workspace()
+		or hl.get_active_workspace()
+		or {}
+end
+
+
 --- Print debug with a notification
 ---@param message string
 function Debug(message)
@@ -26,7 +40,9 @@ Master_size = 600
 
 --- Toggle a window between master and servant state
 function Master_toggle()
-	if hl.get_active_workspace().tiled_layout ~= "master" then
+	local ws = get_workspace();
+
+	if ws.tiled_layout ~= master then
 		return
 	end
 
@@ -49,13 +65,25 @@ end
 -- Toggle the size of the window
 -- This is achieved differently depending on the layout
 function Size_toggle()
-	local workspace = hl.get_active_workspace()
-	if not workspace then
-		return
-	end
+	local workspace = get_workspace()
 
 	Master_toggle()
-	if workspace.tiled_layout == "scrolling" then
+	if workspace.tiled_layout == scrolling then
 		hl.dispatch(hl.dsp.layout("colresize +conf"))
 	end
+end
+
+
+function Toggle_Layout()
+	local workspace = get_workspace()
+	local current = workspace.tiled_layout;
+
+	local function cycle_from_to(from, to)
+		if current == from then
+			hl.workspace_rule({ workspace = workspace.name, layout = to })
+		end
+	end
+
+	cycle_from_to(master, scrolling)
+	cycle_from_to(scrolling, master)
 end
