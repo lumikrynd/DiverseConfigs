@@ -144,8 +144,8 @@ hl.bind(mainMod .. " + L", Custom_focus("right"))
 hl.bind(mainMod .. " + SHIFT + H", hl.dsp.focus({ monitor = "+1"}))
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.focus({ monitor = "-1"}))
 
-hl.bind(mainMod .. " + CTRL + H", hl.dsp.window.swap({ direction = "left" }))
-hl.bind(mainMod .. " + CTRL + L", hl.dsp.window.swap({ direction = "right" }))
+hl.bind(mainMod .. " + CTRL + H", Custom_swap("left"))
+hl.bind(mainMod .. " + CTRL + L", Custom_swap("right"))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]

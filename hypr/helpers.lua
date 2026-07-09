@@ -118,3 +118,28 @@ function Custom_focus(direction)
 		custom_focus_logic(direction)
 	end
 end
+
+local function scrolling_swap(direction)
+	local arg = string.sub(direction, 1, 1)
+	hl.dispatch(hl.dsp.layout("swapcol " .. arg))
+end
+
+--- Swap function which swap column instead of windows for scrolling layout
+---@param direction string
+local function custom_swap_logic(direction)
+	local layout = get_workspace().tiled_layout;
+	if layout == scrolling then
+		scrolling_swap(direction)
+		return
+	end
+
+	hl.dispatch(hl.dsp.window.swap({ direction = direction }))
+end
+
+--- Swap function which swap column instead of windows for scrolling layout
+---@param direction string
+function Custom_swap(direction)
+	return function()
+		custom_swap_logic(direction)
+	end
+end
