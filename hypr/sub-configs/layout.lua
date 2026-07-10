@@ -25,6 +25,8 @@ hl.config({
 		column_width = 0.95,
 		focus_fit_method = 1,
 		fullscreen_on_one_column = true,
+		wrap_swapcol = false,
+		wrap_focus = false,
 	},
 })
 

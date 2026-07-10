@@ -131,10 +131,10 @@ hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(Lock))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(config .. "/scripts/audio_output_switch"))
 
 -- Move focus
-hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + left", Custom_focus("left"))
+hl.bind(mainMod .. " + right", Custom_focus("right"))
+hl.bind(mainMod .. " + up", Custom_focus("up"))
+hl.bind(mainMod .. " + down", Custom_focus("down"))
 
 hl.bind(mainMod .. " + H", Custom_focus("left"))
 hl.bind(mainMod .. " + J", Custom_focus("down"))
