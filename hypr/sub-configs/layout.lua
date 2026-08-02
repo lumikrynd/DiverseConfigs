@@ -27,6 +27,7 @@ hl.config({
 		fullscreen_on_one_column = true,
 		wrap_swapcol = false,
 		wrap_focus = false,
+		explicit_column_widths = "0.333, 0.5, 0.667, 0.95, 1.0"
 	},
 })
 
