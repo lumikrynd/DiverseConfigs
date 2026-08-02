@@ -1,9 +1,15 @@
----@diagnostic disable: unused-local
-local scrolling = "scrolling"
-local dwindle = "dwindle"
-local master = "master"
-local monocle = "monocle"
----@diagnostic enable: unused-local
+local LAYOUT = {
+	scrolling = "scrolling",
+	dwindle = "dwindle",
+	master = "master",
+	monocle = "monocle",
+}
+
+local DIRECTION = {
+	left = "left",
+	right = "right",
+}
+
 
 local function get_workspace()
 	return hl.get_active_special_workspace()
@@ -42,7 +48,7 @@ Master_size = 600
 function Master_toggle()
 	local ws = get_workspace();
 
-	if ws.tiled_layout ~= master then
+	if ws.tiled_layout ~= LAYOUT.master then
 		return
 	end
 
@@ -68,7 +74,7 @@ function Size_toggle()
 	local workspace = get_workspace()
 
 	Master_toggle()
-	if workspace.tiled_layout == scrolling then
+	if workspace.tiled_layout == LAYOUT.scrolling then
 		hl.dispatch(hl.dsp.layout("colresize +conf"))
 	end
 end
@@ -84,57 +90,62 @@ function Toggle_Layout()
 		end
 	end
 
-	cycle_from_to(master, scrolling)
-	cycle_from_to(scrolling, monocle)
-	cycle_from_to(monocle, master)
+	cycle_from_to(LAYOUT.master, LAYOUT.scrolling)
+	cycle_from_to(LAYOUT.scrolling, LAYOUT.monocle)
+	cycle_from_to(LAYOUT.monocle, LAYOUT.master)
 end
 
 
 ---@param direction string
-local function monocle_dir_fix(direction)
-	if direction == "right" then
+local function monocle_focus(direction)
+	if direction == DIRECTION.right then
 		hl.dispatch(hl.dsp.layout("cyclenext"))
-	elseif direction == "left" then
+	elseif direction == DIRECTION.left then
 		hl.dispatch(hl.dsp.layout("cycleprev"))
 	end
 end
 
+
 --- Focus function which also works for the monocle layout
 ---@param direction string
-local function custom_focus_logic(direction)
+local function layout_specific_focus(direction)
 	local layout = get_workspace().tiled_layout;
-	if layout == monocle then
-		monocle_dir_fix(direction)
+	if layout == LAYOUT.monocle then
+		monocle_focus(direction)
 		return
 	end
 
 	hl.dispatch(hl.dsp.focus({ direction = direction }))
 end
 
+
 --- Focus function which also works for the monocle layout
 ---@param direction string
 function Custom_focus(direction)
 	return function()
-		custom_focus_logic(direction)
+		layout_specific_focus(direction)
 	end
 end
+
 
 local function scrolling_swap(direction)
 	local arg = string.sub(direction, 1, 1)
 	hl.dispatch(hl.dsp.layout("swapcol " .. arg))
 end
 
+
 --- Swap function which swap column instead of windows for scrolling layout
 ---@param direction string
 local function custom_swap_logic(direction)
 	local layout = get_workspace().tiled_layout;
-	if layout == scrolling then
+	if layout == LAYOUT.scrolling then
 		scrolling_swap(direction)
 		return
 	end
 
 	hl.dispatch(hl.dsp.window.swap({ direction = direction }))
 end
+
 
 --- Swap function which swap column instead of windows for scrolling layout
 ---@param direction string
