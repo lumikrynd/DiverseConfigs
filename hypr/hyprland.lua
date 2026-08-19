@@ -152,11 +152,9 @@ hl.bind(mainMod .. " + CTRL + L", Custom_swap("right"))
 for i = 1, 10 do
 	local key = i % 10 -- 10 maps to key 0
 
-	hl.bind(mainMod .. " + " .. key, hl.dsp.exec_cmd(Sub_configs .. "/change-workspace " .. i))
+	hl.bind(mainMod .. " + " .. key, Custom_change_workspace(i))
 	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i}))
 end
-
-hl.bind(mainMod .. " + 1", hl.dsp.exec_cmd(". ~/.config/hypr/sub-configs/change-workspace 1"))
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S", Custom_special_workspace)

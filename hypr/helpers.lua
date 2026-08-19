@@ -227,3 +227,17 @@ function Custom_move_special_workspace()
 	local name = get_current_special_name();
 	hl.dispatch(hl.dsp.window.move({ workspace = "special:" .. name}))
 end
+
+---@param ws integer | string The workspace
+local function Custom_change_workspace_logic(ws)
+	hl.dispatch(hl.dsp.focus({workspace = ws}));
+	hl.dispatch(hl.dsp.workspace.toggle_special("minimize"));
+	hl.dispatch(hl.dsp.workspace.toggle_special("minimize"));
+end
+
+---@param ws integer | string The workspace
+function Custom_change_workspace(ws)
+	return function()
+		Custom_change_workspace_logic(ws)
+	end
+end
