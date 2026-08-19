@@ -10,6 +10,8 @@ local DIRECTION = {
 	right = "right",
 }
 
+local SPECIAL = "special:"
+
 
 local function get_workspace()
 	return hl.get_active_special_workspace()
@@ -21,9 +23,8 @@ end
 --- Print debug with a notification
 ---@param message string
 function Debug(message)
-	os.execute("notify-send 'Test' '" .. message .. "'")
+	hl.notification.create({ text = message, timeout = 3000 })
 end
-
 
 --- Register local config file.
 --- Creates the file if it doesn't exist to avoid errors.
@@ -35,9 +36,8 @@ function Run_local_config(name)
 	-- hl.exec_cmd doesn't wait for completion, so using os.execute instead... for now
 	-- hl.exec_cmd("touch -a '" .. Sub_configs .. "/" .. name .. ".lua'")
 	os.execute("touch -a '" .. Sub_configs .. "/" .. name .. ".lua'");
-	require("sub-configs.".. name)
+	require("sub-configs." .. name)
 end
-
 
 --- Used to recognize master windows
 --- It assume the master window is both higher and wider than the given
@@ -67,7 +67,6 @@ function Master_toggle()
 	end
 end
 
-
 -- Toggle the size of the window
 -- This is achieved differently depending on the layout
 function Size_toggle()
@@ -78,7 +77,6 @@ function Size_toggle()
 		hl.dispatch(hl.dsp.layout("colresize +conf"))
 	end
 end
-
 
 function Toggle_Layout()
 	local workspace = get_workspace()
@@ -94,7 +92,6 @@ function Toggle_Layout()
 	cycle_from_to(LAYOUT.scrolling, LAYOUT.monocle)
 	cycle_from_to(LAYOUT.monocle, LAYOUT.master)
 end
-
 
 ---@param direction string
 local function monocle_focus(direction)
@@ -179,7 +176,6 @@ function Custom_focus(direction)
 	end
 end
 
-
 local function scrolling_swap(direction)
 	local arg = string.sub(direction, 1, 1)
 	hl.dispatch(hl.dsp.layout("swapcol " .. arg))
@@ -209,28 +205,28 @@ end
 
 ---Get name needed for workspace specific special workspace
 ---@return string | nil
-local function get_current_special_name()
+local function get_current_name()
 	local workspace = hl.get_active_workspace()
 	if workspace then
-		return "magic_" .. workspace.name
+		return workspace.name
 	end
 
 	return nil
 end
 
 function Custom_special_workspace()
-	local name = get_current_special_name();
+	local name = get_current_name();
 	hl.dispatch(hl.dsp.workspace.toggle_special(name))
 end
 
 function Custom_move_special_workspace()
-	local name = get_current_special_name();
-	hl.dispatch(hl.dsp.window.move({ workspace = "special:" .. name}))
+	local name = get_current_name();
+	hl.dispatch(hl.dsp.window.move({ workspace = SPECIAL .. name }))
 end
 
 ---@param ws integer | string The workspace
 local function Custom_change_workspace_logic(ws)
-	hl.dispatch(hl.dsp.focus({workspace = ws}));
+	hl.dispatch(hl.dsp.focus({ workspace = ws }));
 	hl.dispatch(hl.dsp.workspace.toggle_special("minimize"));
 	hl.dispatch(hl.dsp.workspace.toggle_special("minimize"));
 end

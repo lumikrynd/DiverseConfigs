@@ -149,11 +149,11 @@ hl.bind(mainMod .. " + CTRL + L", Custom_swap("right"))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
-for i = 1, 10 do
-	local key = i % 10 -- 10 maps to key 0
+for id = 1, 10 do
+	local key = id % 10 -- 10 maps to key 0
 
-	hl.bind(mainMod .. " + " .. key, Custom_change_workspace(i))
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i}))
+	hl.bind(mainMod .. " + " .. key, Custom_change_workspace(id))
+	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = id}))
 end
 
 -- Example special workspace (scratchpad)
