@@ -159,8 +159,10 @@ end
 hl.bind(mainMod .. " + 1", hl.dsp.exec_cmd(". ~/.config/hypr/sub-configs/change-workspace 1"))
 
 -- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic"}))
+hl.bind(mainMod .. " + S", Custom_special_workspace)
+hl.bind(mainMod .. " + SHIFT + S", Custom_move_special_workspace)
+hl.bind(mainMod .. " + X", hl.dsp.workspace.toggle_special("magic"))
+hl.bind(mainMod .. " + SHIFT + X", hl.dsp.window.move({ workspace = "special:magic"}))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1"}))

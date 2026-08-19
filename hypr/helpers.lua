@@ -206,3 +206,24 @@ function Custom_swap(direction)
 		custom_swap_logic(direction)
 	end
 end
+
+---Get name needed for workspace specific special workspace
+---@return string | nil
+local function get_current_special_name()
+	local workspace = hl.get_active_workspace()
+	if workspace then
+		return "magic_" .. workspace.name
+	end
+
+	return nil
+end
+
+function Custom_special_workspace()
+	local name = get_current_special_name();
+	hl.dispatch(hl.dsp.workspace.toggle_special(name))
+end
+
+function Custom_move_special_workspace()
+	local name = get_current_special_name();
+	hl.dispatch(hl.dsp.window.move({ workspace = "special:" .. name}))
+end
