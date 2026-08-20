@@ -99,6 +99,10 @@ hl.config({
 		force_default_wallpaper = -1, -- Set to 0 or 1 to disable the anime mascot wallpapers
 		disable_hyprland_logo = false, -- If true disables the random hyprland logo / anime girl background.
 	},
+
+	binds = {
+		hide_special_on_workspace_change = true,
+	},
 })
 
 
@@ -152,7 +156,7 @@ hl.bind(mainMod .. " + CTRL + L", Custom_swap("right"))
 for id = 1, 10 do
 	local key = id % 10 -- 10 maps to key 0
 
-	hl.bind(mainMod .. " + " .. key, Custom_change_workspace(id))
+	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = id }))
 	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = id}))
 end
 
