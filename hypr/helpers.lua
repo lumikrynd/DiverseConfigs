@@ -103,58 +103,6 @@ local function monocle_focus(direction)
 end
 
 
---- Test predicate returns true for the x-value of all windows
---- on the current workspace, against the x-value of the active
---- window
----@param predicate fun(active_x: integer, other_x: integer): boolean
----@return boolean
-local function active_window_x_all(predicate)
-	local window = hl.get_active_window()
-	if window == nil then return true end
-
-	local others = hl.get_windows({ workspace = window.workspace })
-
-	local final = true
-	for _, value in pairs(others) do
-		final = final and predicate(window.at.x, value.at.x)
-	end
-
-	return final
-end
-
-
-local function focus_restricted_right()
-	if active_window_x_all(function(a, b) return a >= b end) then
-		return
-	end
-
-	hl.dispatch(hl.dsp.focus({ direction = DIRECTION.right }))
-end
-
-
-local function focus_restricted_left()
-	if active_window_x_all(function(a, b) return a <= b end) then
-		return
-	end
-
-	hl.dispatch(hl.dsp.focus({ direction = DIRECTION.left }))
-end
-
-
---- Focus function which wont go to another screen
----@param direction string
-local function focus_restricted_to_monitor(direction)
-	if direction == DIRECTION.right then
-		focus_restricted_right()
-	elseif direction == DIRECTION.left then
-		focus_restricted_left()
-	else
-		-- Assuming that I don't have monitors above/bellow each other
-		hl.dispatch(hl.dsp.focus({ direction = direction }))
-	end
-end
-
-
 --- Focus function which also works for the monocle layout
 ---@param direction string
 local function layout_specific_focus(direction)
@@ -164,7 +112,7 @@ local function layout_specific_focus(direction)
 		return
 	end
 
-	focus_restricted_to_monitor(direction)
+	hl.dispatch(hl.dsp.focus({ direction = direction }))
 end
 
 
