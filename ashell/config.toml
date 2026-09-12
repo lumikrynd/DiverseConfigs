@@ -23,6 +23,9 @@ text_color = "#a9b1d6"
 
 workspace_colors = [ "#7aa2f7" ]
 
+[appearance.bar]
+surface = "solid"
+
 [appearance.danger_color]
 base = "#f7768e"
 weak = "#e0af68"
