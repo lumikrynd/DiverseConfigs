@@ -78,6 +78,31 @@ function Size_toggle()
 	end
 end
 
+-- Make slightly bigger for smother resize controls
+local function size_modify(num)
+	local mult = 100
+	num = num * mult;
+	num = math.floor(num + 1);
+	num = num / mult;
+	return num
+end
+
+-- Do other size toggle action depending on layout
+-- Master: Swap with master
+function Size_toggle_special()
+	local workspace = get_workspace()
+
+	if workspace.tiled_layout == LAYOUT.master then
+		hl.dispatch(hl.dsp.layout("swapwithmaster"))
+	elseif workspace.tiled_layout == LAYOUT.scrolling then
+		local window_x = hl.get_active_window().size.x
+		local monitor_x = hl.get_active_monitor().width
+
+		local t = size_modify(window_x / monitor_x)
+		hl.dispatch(hl.dsp.layout("colresize all " .. t))
+	end
+end
+
 function Toggle_Layout()
 	local workspace = get_workspace()
 	local current = workspace.tiled_layout;
