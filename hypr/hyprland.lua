@@ -47,9 +47,6 @@ hl.env("HYPRCURSOR_SIZE", "24")
 
 Run_local_config("environment")
 
-require("sub-configs.local") -- TODO: delete after done porting all
-
-
 -------------------
 ---- AUTOSTART ----
 -------------------
