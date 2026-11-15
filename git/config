@@ -43,6 +43,7 @@
 		}; f;"
 	dbranch = rdelete
 	s = status
+	ss = status .
 	a = add
 	fadd = "! \
 		to_name() {\
@@ -79,6 +80,7 @@
 		}; f"
 	fr = frestore
 	d = diff
+	dd = diff .
 	p = pull
 	pp = pull --prune --no-stat
 	f = fetch
