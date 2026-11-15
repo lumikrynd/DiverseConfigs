@@ -1,4 +1,3 @@
-log_level = "warn"
 outputs = "All"
 position = "Top"
 layer = "Bottom"
@@ -14,7 +13,6 @@ disable_special_workspaces = true
 group_by_monitor = false
 
 [appearance]
-style = "Solid"
 opacity = 0.8
 
 primary_color = "#7aa2f7"
@@ -34,6 +32,3 @@ weak = "#e0af68"
 base = "#1a1b26"
 weak = "#24273a"
 strong = "#414868"
-
-[appearance.secondary_color]
-base = "#0c0d14"
