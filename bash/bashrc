@@ -30,6 +30,7 @@ alias cdr='cd $(git root)'
 alias c='clear -x'
 alias grep='grep --color=auto'
 alias icat='kitten icat'
+alias volume-control='wiremix'
 
 open() {
 	for arg in "$@"; do
