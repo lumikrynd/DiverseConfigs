@@ -10,3 +10,6 @@
 
 [includeif "hasconfig:remote.*.url:git@private:*/**"]
 	path = privateuser.gitconfig
+
+[includeif "gitdir:~/repos-contrip/"]
+	path = contributor.gitconfig
